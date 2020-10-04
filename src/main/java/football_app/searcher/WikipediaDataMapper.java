@@ -11,14 +11,14 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 class WikipediaDataMapper {
 
-    private final ClubLinkFactory clubLinkFactory;
+    private final PageLinkFactory pageLinkFactory;
     private final WikipediaProperties wikipediaProperties;
 
     List<ClubLinkDto> mapFootballDataToClubLinkDto(WikipediaApiSearchData wikipediaApiSearchData) {
         return wikipediaApiSearchData.getFootballClubData().stream()
                 .map(footballData -> new ClubLinkDto(
                         footballData.getPageId(),
-                        clubLinkFactory.getWikipediaLink(
+                        pageLinkFactory.getWikipediaLink(
                                 wikipediaProperties.getUrl(),
                                 footballData.getTitle())
                 ))

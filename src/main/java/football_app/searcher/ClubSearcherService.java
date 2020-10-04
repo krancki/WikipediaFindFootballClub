@@ -39,5 +39,4 @@ class ClubSearcherService implements ClubSearcher {
                 .queryParam("srprop", "")
                 .build().toUriString();
     }
-
 }

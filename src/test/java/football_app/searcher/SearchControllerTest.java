@@ -49,7 +49,6 @@ class SearchControllerTest {
     @Test
     void shouldReturnRepository() throws Exception {
         //given
-
         wm.stubFor(get(urlEqualTo("/w/api.php?action=query&format=json&list=search&srsearch=football%20club%20ClubName&srinfo=&srprop="))
                 .willReturn(aResponse().withStatus(200)
                         .withHeader("Content-Type", "application/json")
@@ -71,7 +70,6 @@ class SearchControllerTest {
         assertEquals("https://pl.wikipedia.org/wiki/Liverpool_F.C._Women", clubs.get(1).getUrl());
 
     }
-
 
     @Test
     void shouldThrowExceptionWhenWikipediaIsNotAvailable() throws Exception {

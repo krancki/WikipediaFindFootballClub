@@ -21,6 +21,4 @@ class SearchController {
     List<ClubLinkDto> getClubLinksByClubName(@PathVariable @Valid @NotBlank String clubName) {
         return clubSearcher.findClubsByClubName(clubName);
     }
-
-
 }

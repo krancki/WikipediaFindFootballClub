@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @AllArgsConstructor
-class ClubLinkFactory {
+class PageLinkFactory {
     String getWikipediaLink(String url, String pageName) {
         return url + pageName.replace(" ", "_");
     }
