@@ -1,0 +1,21 @@
+{
+  "batchcomplete": "",
+  "continue": {
+    "sroffset": 10,
+    "continue": "-||"
+  },
+  "query": {
+    "search": [
+      {
+        "ns": 0,
+        "title": "Liverpool F.C.",
+        "pageid": 18119
+      },
+      {
+        "ns": 0,
+        "title": "Liverpool F.C. Women",
+        "pageid": 8247848
+      }
+    ]
+  }
+}

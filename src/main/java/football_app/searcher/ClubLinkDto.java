@@ -8,7 +8,7 @@ class ClubLinkDto {
     Long pageId;
     String url;
     @JsonCreator(mode = JsonCreator.Mode.PROPERTIES)
-    public ClubLinkDto(Long pageId, String url) {
+    ClubLinkDto(Long pageId, String url) {
         this.pageId = pageId;
         this.url = url;
     }

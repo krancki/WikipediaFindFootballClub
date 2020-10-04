@@ -2,11 +2,7 @@ package football_app.searcher;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.tomakehurst.wiremock.WireMockServer;
-import football_app.config.WikipediaProperties;
-import org.junit.Before;
-import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -16,6 +12,8 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.List;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
@@ -26,7 +24,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @AutoConfigureMockMvc
 @SpringBootTest
-class SearchControllerTest {
+class SearchFootballClubTest {
 
     @Autowired
     private MockMvc mockMvc;
@@ -84,30 +82,7 @@ class SearchControllerTest {
                 .andExpect(status().isServiceUnavailable());
     }
 
-    private String getExampleJsonResponseFromWikipedia() {
-        return "{\n" +
-                "    \"batchcomplete\": \"\",\n" +
-                "    \"continue\": {\n" +
-                "        \"sroffset\": 2,\n" +
-                "        \"continue\": \"-||\"\n" +
-                "    },\n" +
-                "    \"query\": {\n" +
-                "        \"searchinfo\": {\n" +
-                "            \"totalhits\": 15333\n" +
-                "        },\n" +
-                "        \"search\": [\n" +
-                "            {\n" +
-                "                \"ns\": 0,\n" +
-                "                \"title\": \"Liverpool F.C.\",\n" +
-                "                \"pageid\": 18119\n" +
-                "            },\n" +
-                "            {\n" +
-                "                \"ns\": 0,\n" +
-                "                \"title\": \"Liverpool F.C. Women\",\n" +
-                "                \"pageid\": 8247848\n" +
-                "            }\n" +
-                "        ]\n" +
-                "    }\n" +
-                "}";
+    String getExampleJsonResponseFromWikipedia() throws Exception {
+        return new String(Files.readAllBytes(Paths.get("src/test/resources/SampleWikipediaResponse.json")));
     }
 }
